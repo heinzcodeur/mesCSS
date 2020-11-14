@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>parralax</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <img src="img.png" class="layer" data-speed="40">
+    <img src="img.png" class="layer" data-speed="30">
+    <img src="img.png" class="layer" data-speed="20">
+    <img src="img.png" class="layer" data-speed="10">
+</div>
+
+<script>
+
+    document.addEventListener('mousemove',parallax);
+    function parallax(e){
+        this.querySelectorAll('.layer').forEach(layer =>{
+            var speed = layer.getAttribute('data-speed');
+            var x= (window.innerWidth - e.pageX*speed)/250;
+            var y= (window.innerWidth - e.pageX*speed)/250;
+            console.log(x);
+            console.log(y);
+            layer.style.transform = `translateX(${-x}px) translateY(${y}px)`;
+        })
+    }
+
+    function parallax2(e){
+        console.log(e);
+       var tab= document.querySelectorAll('.layer');
+       console.log(tab);
+       var layer=tab[0];
+       console.log(layer);
+        var speed = layer.getAttribute('data-speed');
+        var x = window.innerWidth - e.pageX;
+        console.log(x)
+        var y = window.innerWidth - e.pageX;
+        console.log(y);
+        layer.style.transform = `translateX(${x}px) translateY(${y}px)`;
+        /*.forEach(Layer=>{
+
+
+
+})*/
+
+    }
+
+</script>
+</body>
+</html>
